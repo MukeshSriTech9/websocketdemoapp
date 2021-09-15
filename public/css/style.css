@@ -1,0 +1,16 @@
+form {
+    margin: 0% auto;
+    margin: 100px;
+    width: 400 px;
+    height: 300 px;
+    font-size: large;
+}
+
+input {
+    height: 50px;
+    width: 300px;
+}
+
+label {
+    font-size: x-large;
+}

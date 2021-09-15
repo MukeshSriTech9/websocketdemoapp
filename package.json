@@ -1,0 +1,20 @@
+{
+  "name": "presentation-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@socket.io/sticky": "^1.0.1",
+    "cluster": "^0.7.7",
+    "express": "^4.17.1",
+    "ioredis": "^4.27.9",
+    "socket.io": "^4.2.0",
+    "socket.io-redis": "^6.1.1"
+  }
+}

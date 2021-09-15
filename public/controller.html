@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Controller Page</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body onload='initiateSocketConnection("controller")'>
+        <h1 id="page-heading">Controller Page</h1>
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <label for="usr">Name:</label>
+                    <input type="text" class="form-control" id="usr" name="username" oninput="onInput(this)">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" oninput="onInput(this)">
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" rows="5" id="comment" oninput="onInput(this)"></textarea>
+                </div>
+                <p> Checkboxes here: </p>
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" id="outsideUS" oninput="onInput(this)">Outside US?
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" id="isDeveloper" oninput="onInput(this)">Developer?
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" id="isQa" oninput="onInput(this)">QA?
+                    </label>
+                  </div>
+                  <br/>
+                <p> Radio Buttons now: </p>
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" name="gender" id="male" oninput="onInput(this)">Male
+                    </label>
+                  </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" id="female" oninput="onInput(this)">Female
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" id="na" oninput="onInput(this)">N/A
+                    </label>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <label for="fav_language">Select Favourite Language:</label>
+                    <select class="form-control" id="fav_language" oninput="onInput(this)">
+                        <option>PHP</option>
+                        <option>Go</option>
+                        <option>JavaScript</option>
+                        <option>Java</option>
+                    </select>
+                </div>
+                <br/>
+            </form>
+        </div>
+        <!-- Plain simple HTML form without Style changes. 
+            <h1 id="page-heading">Controller Page</h1>
+        <form align="center"> 
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="John" oninput="onInput(this)"><br>
+
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="Doe" oninput="onInput(this)"><br>
+
+            <label for="ssn">SSN:</label><br>
+            <input type="text" id="ssn" name="ssn" value="123" oninput="onInput(this)"><br>
+
+            
+            <label for="cars">Choose a car:</label>
+            <select id="cars" name="cars" size="3" oninput="onInput(this)">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+            </select><br/>
+            
+            <textarea name="description" id="description" rows="10" cols="30" oninput="onInput(this)">
+                The cat was playing in the garden.
+            </textarea><br/>
+
+            <p>What's your favorite language?</p><br>
+            <input type="radio" id="html" name="fav_language" value="HTML" oninput="onInput(this)">
+            <label for="html">HTML</label><br>
+            <input type="radio" id="css" name="fav_language" value="CSS" oninput="onInput(this)">
+            <label for="css">CSS</label><br>
+            <input type="radio" id="javascript" name="fav_language" value="JavaScript" oninput="onInput(this)">
+            <label for="javascript">JavaScript</label><br><br>
+
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" oninput="onInput(this)">
+            <label for="vehicle1"> I have a bike</label><br>
+          </form> -->
+          <script src="/socket.io/socket.io.js"></script>
+          <script src="socket.js"></script>
+    </body>
+</html>
