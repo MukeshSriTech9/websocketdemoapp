@@ -6,9 +6,45 @@
     <body>
         <h1 id="page-heading">Demo Presentation Page</h1>
         <div class="container">
-            <h1> Go to <a href="controller.html" target="_blank">Controller</a> page here. </h1>
-            <h1> Go to <a href="presentation.html" target="_blank">Presentation</a> page here.</h1>
-
+            <button onclick="generateWebSocketSession()">Click me to Generate Session</button>
+            <h1 id="info"></h1>
+            <h1 id="controllerRedirectHeading" style="display:none"> Go to <a id="controllerRedirectLink" href="controller.html" target="_blank">Controller</a> page here. </h1>
+            <h1 id="presentationRedirectHeading" style="display:none"> Go to <a id="presentationRedirectLink" href="presentation.html" target="_blank">Presentation</a> page here.</h1>
         </div>
+        <script>
+            let sessionId;
+            let controllerToken;
+            let presentationToken;
+
+            const generateWebSocketSession = async () => {
+                const url = "http://1800accountant/cbapi/app.php/public/rtcapp/generate_session";
+                const data = {
+                    "api-key": 12345
+                };
+                const response = await fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(data), // string or object
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const sessionData = await response.json(); //extract JSON from the http response
+                
+                sessionId = sessionData.session_id;
+                controllerToken = sessionData.controller_token;
+                presentationToken = sessionData.presentation_token;
+                console.log(sessionId + " ***** "+ controllerToken + " ****** " + presentationToken);
+                
+                // now we have the session Data. Let's build up the dynamic urls.
+
+                document.getElementById("info").innerHTML = "Generated SessionId : " + sessionId;
+                let dynamicControllerQueryString = "?sessionId=" + sessionId + "&controllerToken=" + controllerToken;
+                let dynamicPresentationQueryString = "?sessionId=" + sessionId + "&presentationToken=" + presentationToken;
+                document.getElementById("controllerRedirectLink").href = document.getElementById("controllerRedirectLink").href  + dynamicControllerQueryString; 
+                document.getElementById("presentationRedirectLink").href = document.getElementById("presentationRedirectLink").href  + dynamicPresentationQueryString; 
+                document.getElementById("controllerRedirectHeading").style.display = "block";
+                document.getElementById("presentationRedirectHeading").style.display = "block";
+            }
+        </script>
     </body>
 </html>

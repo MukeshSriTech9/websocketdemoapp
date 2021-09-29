@@ -22,7 +22,7 @@ class InMemorySessionStore extends SessionStore {
 }
 
 const SESSION_TTL = 24 * 60 * 60;
-const CACHE_PREFIX_KEY = "";//"rtcapp_session_";
+const CACHE_PREFIX_KEY = '_cbapi_cache' + 'rtcapp_session_';
 
 class RedisSessionStore extends SessionStore {
 

@@ -31,9 +31,15 @@ socket.on("private message", (message)=> {
     }
 });
 
-function initiateSocketConnection(source) {
-    console.log(source);
-    socket.auth = {sessionID: 123, authToken: 1234, source: source}; // Pass these credentials as per actual application setup. This is just here for demo. 
+function initiateSocketConnection() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionID = urlParams.get('sessionId');
+    const controllerToken = urlParams.get('controllerToken');
+    const presentationToken = urlParams.get('presentationToken');
+
+    const authToken = (controllerToken) ? controllerToken : presentationToken;
+    const source    = (controllerToken) ? "controller" : "presentation";
+    socket.auth = {sessionID: sessionID, authToken: authToken, source: source}; // Pass these credentials as per actual application setup. This is just here for demo. 
     socket.connect();
 }
 
