@@ -1,4 +1,4 @@
-# presentation_app
+# presentation_demo_app
 Creating a socket.io based presentation demo app with live presentation controlled from one page showcasing the live feed on the other. This uses socket.io rooms feature to publish message from one user to another.
 
 # Step to run this application - 
