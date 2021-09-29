@@ -1,4 +1,4 @@
-form {
+/* form {
     margin: 0% auto;
     margin: 100px;
     width: 400 px;
@@ -13,4 +13,8 @@ input {
 
 label {
     font-size: x-large;
-}
+} */
+
+/* #controllerMessageInputForm, #presentationMessageInputForm {
+    display: hidden;
+} */

@@ -10,9 +10,24 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
     <body onload='initiateSocketConnection("presentation")'>
-        <h1 id="page-heading">Presentation Page</h1>
-        <div class="container">
-            <form>
+        <!-- <div class="container" id="presentationAuthForm">
+          <form>
+            <div class="form-group">
+                <label for="sessionId">SessionID:</label>
+                <input type="text" class="form-control" id="sessionId" name="sessionId">
+            </div>
+            <div class="form-group">
+                <label for="presentationAuthToken">PresentationToken:</label>
+                <input type="text" class="form-control" id="presentationAuthToken" name="presentationAuthToken">
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" onclick="onPresentationAuthFormSubmission()">Submit</button>
+          </form>
+        </div>
+        <hr/> -->
+        <div class="container" id="presentationMessageInputForm"> 
+            <h1 id="page-heading">Presentation Page</h1>
+            <form >
                 <div class="form-group">
                     <label for="usr">Name:</label>
                     <input type="text" class="form-control" id="usr" name="username" readonly>
